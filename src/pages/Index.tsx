@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import FaqItem from '@/components/FaqItem';
 
 export default function Index() {
   const phone1 = '88632567025';
@@ -365,61 +365,36 @@ export default function Index() {
               Частые вопросы
             </h2>
 
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Сколько времени занимает?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Обычно 5–10 минут. Если очень много снега или сильная наледь — до 15 минут. Всегда предупреждаю заранее.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Что если мокрый снег или сильная наледь?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Мокрый снег удаляю дольше, но тоже справляюсь. При сильной наледи использую больше анти-льда. Цену всегда называю до начала работы, без сюрпризов.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Можно ли без владельца?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Да, если машина не в салоне. Я работаю снаружи: стёкла, фары, зеркала, дворники. Внутрь не захожу. Главное — договориться о времени и месте.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Что именно чистится?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Лобовое стекло (зона обзора), боковые стёкла при необходимости, зеркала, фары, зона дворников и кромки. Плюс подход к водительской двери — стелю коврик.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Безопасно ли для стекла?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Абсолютно. Нет металлического скребка, только воздуходувка на расстоянии и анти-лед на спиртовой основе. Минимум контакта, нет риска царапин.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6" className="bg-white rounded-xl px-6 shadow-sm border-none">
-                <AccordionTrigger className="font-heading text-lg hover:no-underline">
-                  Как работаете при плотной парковке?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
-                  Аккуратно и внимательно. Знаю как маневрировать с оборудованием, чтобы не задеть соседние машины. Опыт работы в обычных дворах многоэтажек.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="space-y-4">
+              {[
+                {
+                  q: 'Сколько времени занимает?',
+                  a: 'Обычно 5–10 минут. Если очень много снега или сильная наледь — до 15 минут. Всегда предупреждаю заранее.'
+                },
+                {
+                  q: 'Что если мокрый снег или сильная наледь?',
+                  a: 'Мокрый снег удаляю дольше, но тоже справляюсь. При сильной наледи использую больше анти-льда. Цену всегда называю до начала работы, без сюрпризов.'
+                },
+                {
+                  q: 'Можно ли без владельца?',
+                  a: 'Да, если машина не в салоне. Я работаю снаружи: стёкла, фары, зеркала, дворники. Внутрь не захожу. Главное — договориться о времени и месте.'
+                },
+                {
+                  q: 'Что именно чистится?',
+                  a: 'Лобовое стекло (зона обзора), боковые стёкла при необходимости, зеркала, фары, зона дворников и кромки. Плюс подход к водительской двери — стелю коврик.'
+                },
+                {
+                  q: 'Безопасно ли для стекла?',
+                  a: 'Абсолютно. Нет металлического скребка, только воздуходувка на расстоянии и анти-лед на спиртовой основе. Минимум контакта, нет риска царапин.'
+                },
+                {
+                  q: 'Как работаете при плотной парковке?',
+                  a: 'Аккуратно и внимательно. Знаю как маневрировать с оборудованием, чтобы не задеть соседние машины. Опыт работы в обычных дворах многоэтажек.'
+                }
+              ].map((faq, idx) => (
+                <FaqItem key={idx} question={faq.q} answer={faq.a} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
